@@ -22,7 +22,7 @@
 ```mermaid
 graph TD
     A[原始文本文档] --> B{文本分割器};
-    B --> C[Ollama嵌入模型 <br> (nomic-embed-text)];
+    B --> C["Ollama嵌入模型 <br> (nomic-embed-text)"];
     C --> D[生成文本向量];
     D --> E[(ChromaDB <br> 本地向量数据库)];
     subgraph 索引阶段
@@ -45,13 +45,13 @@ graph TD
 ```mermaid
 graph TD
     subgraph RAG问答流程
-        Q[用户问题] --> QR{LLM查询重写 <br> (deepseek-coder)};
+        Q[用户问题] --> QR{"LLM查询重写 <br> (deepseek-coder)"};
         QR --> S[优化后的查询];
         S --> DB[(ChromaDB)];
         DB -- 语义搜索 --> C[检索到的相关文本块];
         C --> P{提示词模板};
         S --> P;
-        P --> LLM{LLM生成模型 <br> (deepseek-coder)};
+        P --> LLM{"LLM生成模型 <br> (deepseek-coder)"};
         LLM --> A[最终答案];
     end
 ```
