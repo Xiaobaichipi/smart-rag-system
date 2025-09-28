@@ -50,8 +50,7 @@ class SmartRAGSystemV2:
 
     def build_knowledge_base(self, documents: List[str], chunk_size: int = 800, chunk_overlap: int = 100):
         """
-        构建知识库。这里我们先使用更稳定可靠的文本分割器。
-        您的智能切分想法很好，可以作为高级功能后续再集成。
+        构建知识库。
         """
         print("开始构建知识库...")
         if not documents:
@@ -87,7 +86,7 @@ class SmartRAGSystemV2:
     def query_rewrite(self, user_query: str) -> str:
         """
         使用LLM对用户问题进行重写，使其更适合检索。
-        这保留了您`extract_key_information`的核心思想。
+        这保留了v2中`extract_key_information`的核心思想。
         """
         rewrite_prompt_template = """你是一个专业的查询优化助手。请分析以下用户问题，并将其改写成一个更清晰、更适合在知识库中进行语义检索的查询。
         保持核心意图不变，但可以补充关键词、纠正错别字或转换为更正式的表述。
